@@ -75,6 +75,11 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style main_menu_title:
+    properties gui.text_properties("title")
+    color gui.hover_color
+    outlines [(3, gui.muted_color, 1, 2)]
+
 
 
 ################################################################################
@@ -151,6 +156,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines [(2, gui.muted_color, 0, 0)]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -158,6 +164,8 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+
+    outlines [(2, gui.hover_muted_color, 0, 0)]
 
     adjust_spacing False
 

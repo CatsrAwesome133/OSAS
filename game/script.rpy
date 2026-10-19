@@ -9,19 +9,33 @@ define o = Character("Odelyna") # ody for short
 define k = Character("The King") # king for short
 define s = Character("Sybili") # syb for short
 
+
 # The game starts here.
 
 label start:
-    scene room ed
-
-    "Once upon a time there was a great kingdom, by the name of -, in the land of -. The kingdom ruled for many a century, bringing peace and prosperity upon its people."
+    "Once upon a time there was a great kingdom, by the name of -, in the land of -. The kingdom ruled for many a millenium, bringing peace and prosperity upon its people."
+    pause 2.0
+    scene intro 1
+    with fade
+    
+    ""
     
     "But every century…"
     
-    "A terrible plague would occur. For a decade or more, demons would ravage the land and spread rot among the kingdom."
-    
-    "And every decade, without fail, a mage of Light would rise to banish the rot."
+    scene intro 2
+    with fade
+    play sound thunder
+    "A terrible plague would occur."
 
+    "For a decade or more, demons would ravage the land and spread rot among the kingdom."
+    
+    scene intro 3
+    with dissolve
+    "And every century, without fail, a mage of Light would rise to banish the rot."
+    pause 2.0
+    
+    scene room ed
+    with fade
     show ody lean
 
     o "Hey, sleepyhead! You wouldn't miss your big day, now, would you?"
@@ -60,7 +74,13 @@ label start:
 
 label intro1:
     scene balcony people
+    with fade
 
+    "The outside is beautiful. It looks like renaissance fair, if an entire city were there. There's a crowd, looking at you."
+   
+    "While you were walking, the girl you saw when you woke up told you some things about today. You're being officially crowned heir to the throne of some kingdom or another, because your “brother” tragically died in battle. "
+    
+    "She seems stupidly unsuspicious of your apparent amnesia. "
     jump end
 
 

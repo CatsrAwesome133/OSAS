@@ -14,3 +14,7 @@
     - normal (wanderers)
     - empty
     - night
+- intros
+    - 1: kingdom
+    - 2: demons
+    - 3: prince
