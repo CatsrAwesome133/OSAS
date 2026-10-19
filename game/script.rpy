@@ -3,34 +3,67 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define E = Character("Edward") # ed for short
-define H = Character("Hailey") # just hailey
-define O = Character("Odelyna") # ody for short
-define K = Character("The King") # ala for short
-define S = Character("Sybili") # syb for short
+define e = Character("Edward") # ed for short
+define h = Character("Hailey") # just hailey
+define o = Character("Odelyna") # ody for short
+define k = Character("The King") # king for short
+define s = Character("Sybili") # syb for short
 
 # The game starts here.
 
 label start:
+    scene room ed
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    "Once upon a time there was a great kingdom, by the name of -, in the land of -. The kingdom ruled for many a century, bringing peace and prosperity upon its people."
+    
+    "But every century…"
+    
+    "A terrible plague would occur. For a decade or more, demons would ravage the land and spread rot among the kingdom."
+    
+    "And every decade, without fail, a mage of Light would rise to banish the rot."
 
-    scene bg room
+    show ody lean
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    o "Hey, sleepyhead! You wouldn't miss your big day, now, would you?"
 
-    show eileen happy
+    h "Wh- What?"
 
-    # These display lines of dialogue.
+    "You don't recognise this person, or what she's talking about. At all."
 
-    e "You've created a new Ren'Py game."
+    h "Who are you? How are you in my- what is this place? Where am I?"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show ody stare
+    o "..."
 
-    # This ends the game.
+    show ody whaa
+    ""
 
+    o "How could you have forgotten your fiancé?"
+
+    o "And this is your room, silly!"
+
+    show ody hehe
+    pause 1.5
+
+    h "Since when was I engaged???"
+
+    h "Actually… Don't answer that question. Lets, uh, go… ?"
+
+    "Looks like you've been, ugh, reincarnated. Because your family and friends don't matter at all, apparently, and you just died in your sleep."
+
+    "…"
+
+    "Did you even die?"
+
+    jump intro1
+
+
+label intro1:
+    scene balcony people
+
+    jump end
+
+
+
+label end:
     return
