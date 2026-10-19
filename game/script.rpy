@@ -3,8 +3,11 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
+define E = Character("Edward") # ed for short
+define H = Character("Hailey") # just hailey
+define O = Character("Odelyna") # ody for short
+define K = Character("The King") # ala for short
+define S = Character("Sybili") # syb for short
 
 # The game starts here.
 
