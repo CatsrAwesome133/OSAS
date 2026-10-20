@@ -13,6 +13,8 @@ define nemo = Character("__ _", voice_tag="Narrator")
 define story = Character("_ ___", who_color="#000000", voice_tag="Storyteller", what_prefix="{i}", what_suffix="{/i}")
 define unknown = Character("???")
 
+define config.default_textshader = "typewriter"
+
 screen voice_toggle:
     vbox:
         textbutton "Mute the Narrator" action ToggleVoiceMute("Narrator")
@@ -21,6 +23,44 @@ screen voice_toggle:
 # The game starts here.
 
 label start:
+    scene blank
+    with fade
+    "You hear two voices speaking."
+
+    menu:
+        "Listen in!":
+            jump convo1
+            
+        "Nah. (Let's get to the plot!)":
+            jump intro0
+
+label convo1:
+    scene blank
+    with fade
+    voice "convo/1-1.ogg"
+    nemo "So. We have a new story today."
+
+    voice "convo/1-2.ogg"
+    story "That's right! We do!"
+
+    voice "convo/1-3.ogg"
+    nemo "And. Well... "
+
+    voice "convo/1-4.ogg"
+    nemo "Hailey isn't the lead, is she?"
+
+    voice "convo/1-5.ogg"
+    story "Well... she is, for now. "
+    voice "convo/1-6.ogg"
+    extend "I'm sure you'll figure it out."
+
+    voice "nemo/nemo_start.ogg"
+    nemo "Let us start, then."
+
+    jump intro0
+
+
+label intro0:
     # show screen voice_toggle
     scene blank
     with fade
@@ -116,8 +156,75 @@ label intro1:
     
     "She seems stupidly unsuspicious of your apparent amnesia. "
 
-    voice "nemo/nemo_placeholder1.ogg"
-    nemo "We need some new dialouge from the king, but I'll let the others take over."
+    show king back
+    with dissolve
+    k "Today we mourn the passing of my eldest son, prince Morton, and celebrate the succession of young prince Edward as heir."
+
+    "Wait, {i}prince{/i}?"
+
+    k "Prince Edward, do you have anything to say?"
+
+    "You wince at the name and hope nobody notices."
+
+    h "Um. I… Thank you, everyone…? "
+    extend "The, uh, death of my brother has impacted us all, ah, terribly, "
+    
+    h "but. "
+    extend "I'm… glad… to be given the opportunity to lead us all forward{shader=typewriter}…{/shader}?"
+    
+    h "{size=*0.6}Was that good enough?{/size}"
+
+    k "Thank you, my son. "
+    extend "Truly, it has been terrifying to see that the demons have returned. {size=*0.9}Sti{/size}{size=*0.8}ll, w{/size}{size=*0.6}e ho{/size}{size=*0.3}pe…{/size}"
+
+    "You've zoned him out by now. Because, {shader=wave:u__amplitude=3.0}DEMONS??{/shader} "
+    extend "Of course, it's like those stupid reincarnation animes but… "
+    extend "now, you're in one."
+
+    "And that means you’ll have to fight demons. "
+    extend "DEMONS."
+
+    "You don’t know how strong they are, but that doesn’t matter. "
+    extend "Because you {shader=wave:u__amplitude=3.0}{i}CAN’T FIGHT!{/i}{/shader} "
+
+    show king concern
+    k "Are you alright, my son? "
+
+    h " I wasn’t expecting fighting! "
+    extend "And I’m not a boy, thanks! "
+
+    h "…or a girl, per se, since I’m, ugh, an {i}old woman{/i}. "
+
+    "You’re thirty-one. Even though you still feel like you’ve just graduated college." 
+
+    show king normal
+    k "Do not fear, my son. "
+    extend "Have you forgotten your prodigious Light magic? It will guide us, and you, through these terrible times to come. "
+    
+    k "I have many men; "
+    extend "talented, skilled men, who wish to teach you the ways of combat. "
+
+    "So this “Edward” didn’t fight. "
+    extend "Yay…?"
+
+    "…Wait."
+    extend "Edward clearly isn’t here anymore. "
+    
+    "Did your being here… "
+    extend "kill him?"
+    extend "{shader=wave:u__amplitude=5.0}DID YOU KILL SOMEONE?{/shader} "
+
+    pause 1.0
+
+    "…Shit. The king is still looking at you. "
+    extend "You should say something. "
+
+    menu:
+        "Say the first thing that comes to mind":
+            call label_with_params(5)
+
+        "Try to make a coherent response":
+            jump label_without_params
 
     jump intro2
 
