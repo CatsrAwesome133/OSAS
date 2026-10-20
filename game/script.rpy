@@ -61,7 +61,10 @@ label start:
     pause 2.0
     scene room ed
     with fade
+    play sound footstep2
+    pause 2.0
     show ody lean
+    with dissolve
 
     unknown "Hey, sleepyhead! You wouldn't miss your big day, now, would you?"
 
