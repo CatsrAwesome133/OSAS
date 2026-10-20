@@ -148,6 +148,10 @@ label intro2:
 
     scene demon arena
     with fade
+    play sound ow_my_bones
+    pause 1.0
+
+    s "Oh, Stars! Stop, you monster!"
 
     jump end
 
