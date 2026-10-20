@@ -10,7 +10,8 @@ define k = Character("The King") # king for short
 define s = Character("Sybili") # syb for short
 
 define nemo = Character("__ _", voice_tag="Narrator")
-define story = Character("_ ___", who_color="#000000", voice_tag="Storyteller", what_prefix="{i}", what_suffix="{/i}")
+define nemo_nvl = Character("__ _", voice_tag="Narrator", kind=nvl)
+define story = Character("_ ___", who_color="#000000", voice_tag="Storyteller", what_prefix="{i}", what_suffix="{/i}", kind=nvl)
 define unknown = Character("???")
 
 define config.default_textshader = "typewriter"
@@ -33,21 +34,24 @@ label start:
             
         "Nah. (Let's get to the plot!)":
             jump intro0
+        
+        "I wanna speeeed!":
+            jump select
 
 label convo1:
     scene blank
     with fade
     voice "convo/1-1.ogg"
-    nemo "So. We have a new story today."
+    nemo_nvl "So. We have a new story today."
 
     voice "convo/1-2.ogg"
     story "That's right! We do!"
 
     voice "convo/1-3.ogg"
-    nemo "And. Well... "
+    nemo_nvl "And. Well... "
 
     voice "convo/1-4.ogg"
-    nemo "Hailey isn't the lead, is she?"
+    nemo_nvl "Hailey isn't the lead, is she?"
 
     voice "convo/1-5.ogg"
     story "Well... she is, for now. "
@@ -55,7 +59,9 @@ label convo1:
     extend "I'm sure you'll figure it out."
 
     voice "nemo/nemo_start.ogg"
-    nemo "Let us start, then."
+    nemo_nvl "Let us start, then."
+
+    nvl hide dissolve
 
     jump intro0
 
@@ -66,7 +72,7 @@ label intro0:
     with fade
 
     voice "nemo/nemo_intro1-1.ogg"
-    nemo "Once upon a time there was a great kingdom, by the name of Trecia, in the land three planets from the sun. "
+    center "Once upon a time there was a great kingdom, by the name of Trecia, in the land three planets from the sun. "
     play music singing1_quiet fadein 1.0
     voice "nemo/nemo_intro1-1.1.ogg"
     extend "The kingdom ruled for many a millenium, bringing peace and prosperity upon its people."
@@ -226,15 +232,15 @@ label intro1:
         "Try to make a coherent response":
             jump label_without_params
 
-    jump intro2
+    jump sceneA1
 
 
-label intro2:
+label sceneA1:
     scene blank
     with fade
 
     voice "nemo/nemo_intro2-1.ogg"
-    nemo "She scoured the books like a wildfire, and yet she found so little. "
+    nemo_nvl "She scoured the books like a wildfire, and yet she found so little. "
     voice "nemo/nemo_intro2-2.ogg"
     extend "Demons were a plague; magics were a blessing. And:"
     
@@ -249,7 +255,7 @@ label intro2:
     extend "Great Polaris guides us home, from the sailors at sea to the children playing hide-and-seek."
     
     voice "nemo/nemo_intro2-3.ogg"
-    nemo "She looked at the stars, and found so many more than she'd ever seen before. "
+    nemo_nvl "She looked at the stars, and found so many more than she'd ever seen before. "
     voice "nemo/nemo_intro2-4.ogg"
     extend "She looked at the stars, and-"
 
@@ -262,6 +268,18 @@ label intro2:
 
     jump end
 
+
+
+label select:
+    menu:
+        "Nemo and Storyteller's first inrtoduction":
+            jump convo1
+        "Game Start":
+            jump intro0
+        "The ceremony, and library":
+            jump intro1
+        "Edward, and four months later":
+            jump sceneA1
 
 
 label end:
